@@ -11,6 +11,7 @@ $signature = isset($_GET['signature']) ? $_GET['signature'] : null;
 $action = isset($_GET['status']) ? $_GET['status'] : null;
 $ipuser = isset($_GET['userIp']) ? $_GET['userIp'] : "0.0.0.0";
 
+
 // validate signature
 if (md5($userId.$transactionId.$points.$secret) != $signature){
     echo "ERROR: Signature doesn't match";
