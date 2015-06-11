@@ -18,6 +18,10 @@ if (md5($userId.$transactionId.$points.$secret) != $signature){
     return;
 }
 
+if($action == 2){  // action = 1 CREDITED // action = 2 REVOKED
+    $points = -abs($points);
+}
+
 if(isNewTransaction($transactionId)){ // Check if the transaction is new
     processTransaction($userId, $points, $transactionId);
     echo "OK";
